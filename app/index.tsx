@@ -13,7 +13,7 @@ export default function Index() {
       </View>
       <Text style={styles.h1}>Campo minado</Text>
       <View style={styles.field}>
-        <Field amount={77} />
+        <Field amount={150} />
       </View>
       <Text style={styles.footer}>by Ryan Wyllyan Ribeiro Inácio - 2024</Text>
     </View>
@@ -38,10 +38,10 @@ const styles = StyleSheet.create({
     marginVertical: 15,
   },
   field: {
-    flex: 1,
     width: "88%",
-    backgroundColor: Colors.bluex,
     marginBottom: 40,
+    backgroundColor: Colors.bluex,
+    padding: 2,
   },
   footer: {
     position: "absolute",
