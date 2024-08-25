@@ -1,5 +1,7 @@
 import { Field } from "@/components/Field";
 
+export const quantMines = 20;
+
 export const createField = (rows: number, cols: number): Field => {
   const field: Field = [];
   for (let i = 0; i < rows; i++) {
@@ -8,13 +10,13 @@ export const createField = (rows: number, cols: number): Field => {
       field[i].push({
         row: i,
         column: j,
-        state: "open",
+        state: "closed",
         hasMine: false,
         nearMines: 0,
       });
     }
   }
-  placeMines(field, Math.floor((rows * cols) / 8));
+  placeMines(field, quantMines);
   field.forEach((row, i) => {
     row.forEach((cell, j) => {
       if (!cell.hasMine) {
@@ -48,4 +50,46 @@ const getNearMines = (field: Field, row: number, col: number) => {
     }
   }
   return nearMines;
+};
+
+export const openSquare = (field: Field, row: number, col: number) => {
+  if (field[row]?.[col]?.state === "closed") {
+    field[row][col].state = "open";
+    if (field[row][col].nearMines === 0) {
+      for (let i = -1; i <= 1; i++) {
+        for (let j = -1; j <= 1; j++) {
+          if (i === 0 && j === 0) continue;
+          openSquare(field, row + i, col + j);
+        }
+      }
+    }
+  }
+};
+
+export const openMines = (field: Field) => {
+  field.forEach((row) => {
+    row.forEach((cell) => {
+      if (cell.hasMine) cell.state = "open";
+    });
+  });
+};
+
+export const countClosed = (field: Field) => {
+  let closed = 0;
+  field.forEach((row) => {
+    row.forEach((cell) => {
+      if (cell.state === "closed") closed++;
+    });
+  });
+  return closed;
+};
+
+export const countCorrectFlags = (field: Field) => {
+  let correctFlags = 0;
+  field.forEach((row) => {
+    row.forEach((cell) => {
+      if (cell.state === "flag" && cell.hasMine) correctFlags++;
+    });
+  });
+  return correctFlags;
 };
