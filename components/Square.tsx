@@ -1,19 +1,39 @@
-import { Colors } from "@/constants/Colors";
-import { Image, StyleSheet, View } from "react-native";
+import { Colors } from "@/constants/colors";
+import { Image, StyleSheet, Text, View } from "react-native";
 
-export const Square = () => {
+export type Square = {
+  row: number;
+  column: number;
+  state: "open" | "flag" | "closed";
+  hasMine: boolean;
+  nearMines: number;
+};
+
+export const Square = ({ state, hasMine, nearMines }: Square) => {
   return (
     <View style={styles.square}>
-      {Math.random() > 0.5 ? (
+      {state === "open" ? (
+        hasMine ? (
+          <Image
+            source={require("@/assets/images/react-logo.png")}
+            style={styles.image}
+          />
+        ) : (
+          <View>
+            {nearMines == 0 ? (
+              <View></View>
+            ) : (
+              <Text style={styles.text}>{nearMines}</Text>
+            )}
+          </View>
+        )
+      ) : state === "flag" ? (
         <Image
           source={require("@/assets/images/bandeirex.png")}
           style={styles.image}
         />
       ) : (
-        <Image
-          source={require("@/assets/images/react-logo.png")}
-          style={styles.image}
-        />
+        <View></View>
       )}
     </View>
   );
@@ -32,5 +52,9 @@ const styles = StyleSheet.create({
   image: {
     height: "80%",
     width: "80%",
+  },
+  text: {
+    color: Colors.bluelogo,
+    fontSize: 20,
   },
 });

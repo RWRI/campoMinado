@@ -1,5 +1,5 @@
 import { Field } from "@/components/Field";
-import { Colors } from "@/constants/Colors";
+import { Colors } from "@/constants/colors";
 import { Image, StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
@@ -13,7 +13,7 @@ export default function Index() {
       </View>
       <Text style={styles.h1}>Campo minado</Text>
       <View style={styles.field}>
-        <Field amount={150} />
+        <Field rows={15} cols={10} />
       </View>
       <Text style={styles.footer}>by Ryan Wyllyan Ribeiro Inácio - 2024</Text>
     </View>

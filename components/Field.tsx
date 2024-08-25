@@ -1,19 +1,22 @@
 import { StyleSheet, View } from "react-native";
 import { Square } from "./Square";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import { createField } from "@/constants/functions";
 
 type FieldProps = {
-  amount: number;
+  rows: number;
+  cols: number;
 };
 
-export const Field = ({ amount }: FieldProps) => {
+export type Field = Square[][];
+
+export const Field = ({ rows, cols }: FieldProps) => {
+  const field = createField(rows, cols);
   return (
     <View style={styles.field}>
-      {Array(amount)
-        .fill(0)
-        .map((_, i) => (
-          <Square key={i} />
-        ))}
+      {field.map((row, i) =>
+        row.map((square, j) => <Square key={`${i}-${j}`} {...square} />)
+      )}
     </View>
   );
 };
