@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "minadex",
-    "slug": "campo minado",
+    "slug": "campo-minado",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/logex.png",
@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/logex.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.rwri.campominado"
     },
     "web": {
       "bundler": "metro",
@@ -31,6 +32,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "beffaa47-8d64-41f6-b858-b29996dba06e"
+      }
     }
   }
 }
