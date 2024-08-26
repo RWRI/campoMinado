@@ -1,50 +1,11 @@
-# Welcome to your Expo app 👋
+# CAMPINEX
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+<img scr="./assets/images/logex.png" alt="Logo do jogo" width="400">
 
-## Get started
+Este foi um jogo de campo minado desenvolvido em React Native como projeto final da capacitação desta tecnologia.
 
-1. Install dependencies
+## Detalhes sobre o jogo
 
-   ```bash
-   npm install
-   ```
+O projeto conta apenas com uma tela, na qual estão presente os quadrados do campo minado que contam com 20 bombas escondidas. Para abrir um quadrado basta clicar sobre ele e para marcar uma possível bomba basta clicar e segurar o quadrado.
 
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Caso clique em uma bomba um alert aparecerá indicando que você perdeu. Ou se encontrar todas as bombas você será avisado que venceu o jogo por meio de outro alert. Vale ressaltar que ambos avisos tem um botão para jogar novamente.
