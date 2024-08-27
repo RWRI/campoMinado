@@ -1,6 +1,10 @@
-# CAMPINEX
+<hr>
 
-<img scr="./assets/images/logex.png" alt="Logo do jogo" width="400">
+<div align="center">
+    <h1>CAMPINEX</h1>
+        <img src="./assets/images/logex.png" alt="Logo do Jogo" width="200">
+    </a>
+</div>
 
 Este foi um jogo de campo minado desenvolvido em React Native como projeto final da capacitação desta tecnologia.
 
