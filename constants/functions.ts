@@ -1,6 +1,8 @@
 import { Field } from "@/components/Field";
 
-export const quantMines = 20;
+export const quantRows = 16;
+export const quantCols = 10;
+export const quantMines = 32;
 
 export const createField = (rows: number, cols: number): Field => {
   const field: Field = [];

@@ -5,7 +5,9 @@ import {
   createField,
   openMines,
   openSquare,
+  quantCols,
   quantMines,
+  quantRows,
 } from "@/constants/functions";
 import { Alert, Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { Field } from "./Field";
@@ -31,7 +33,7 @@ export const Square = ({ square, field, setField }: SquareProps) => {
       Alert.alert("Olha só!😱", "Parabéns 🥳🥳🥳 você venceu 💙💙💙", [
         {
           text: "Jogar Novamente",
-          onPress: () => setField(createField(15, 10)),
+          onPress: () => setField(createField(quantRows, quantCols)),
         },
       ]);
     } else setField(newField);
@@ -47,7 +49,7 @@ export const Square = ({ square, field, setField }: SquareProps) => {
           Alert.alert("THE END!🥺", "Ihhh você EXplodiu! 😂😂😂", [
             {
               text: "Jogar Novamente",
-              onPress: () => setField(createField(15, 10)),
+              onPress: () => setField(createField(quantRows, quantCols)),
             },
           ]);
         } else {
@@ -56,6 +58,7 @@ export const Square = ({ square, field, setField }: SquareProps) => {
         }
       }}
       onLongPress={() => {
+        if (square.state === "open") return;
         const newField = [...field];
         newField[square.row][square.column].state =
           square.state === "flag" ? "closed" : "flag";
@@ -92,11 +95,12 @@ export const Square = ({ square, field, setField }: SquareProps) => {
 
 const styles = StyleSheet.create({
   square: {
+    maxHeight: "7%",
     width: "10%",
     aspectRatio: 1,
     backgroundColor: Colors.background,
     borderColor: Colors.bluex,
-    borderWidth: 1,
+    borderWidth: 1.5,
     justifyContent: "center",
     alignItems: "center",
   },
